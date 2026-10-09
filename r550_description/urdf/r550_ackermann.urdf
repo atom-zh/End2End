@@ -10,10 +10,10 @@
     <visual>
       <origin xyz="0.265 0 0.15" rpy="0 0 0"/>
       <geometry>
-        <box size="0.762 0.35 0.15"/>
+        <mesh filename="package://r550_description/meshes/r550_ackermann/base_link.STL"/>
       </geometry>
       <material name="gray">
-        <color rgba="0.6 0.6 0.65 1.0"/>
+        <color rgba="0.741 0.902 0.957 1.0"/>
       </material>
     </visual>
     <collision>
@@ -40,10 +40,10 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
       <geometry>
-        <cylinder radius="0.12" length="0.08"/>
+        <mesh filename="package://r550_description/meshes/r550_ackermann/rear_left_wheel.STL"/>
       </geometry>
       <material name="black">
-        <color rgba="0.1 0.1 0.1 1.0"/>
+        <color rgba="0.15 0.15 0.15 1.0"/>
       </material>
     </visual>
     <collision>
@@ -69,10 +69,10 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
       <geometry>
-        <cylinder radius="0.12" length="0.08"/>
+        <mesh filename="package://r550_description/meshes/r550_ackermann/rear_right_wheel.STL"/>
       </geometry>
       <material name="black">
-        <color rgba="0.1 0.1 0.1 1.0"/>
+        <color rgba="0.15 0.15 0.15 1.0"/>
       </material>
     </visual>
     <collision>
@@ -113,10 +113,10 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
       <geometry>
-        <cylinder radius="0.12" length="0.08"/>
+        <mesh filename="package://r550_description/meshes/r550_ackermann/front_left_wheel.STL"/>
       </geometry>
       <material name="black">
-        <color rgba="0.1 0.1 0.1 1.0"/>
+        <color rgba="0.15 0.15 0.15 1.0"/>
       </material>
     </visual>
     <collision>
@@ -157,10 +157,10 @@
     <visual>
       <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
       <geometry>
-        <cylinder radius="0.12" length="0.08"/>
+        <mesh filename="package://r550_description/meshes/r550_ackermann/front_right_wheel.STL"/>
       </geometry>
       <material name="black">
-        <color rgba="0.1 0.1 0.1 1.0"/>
+        <color rgba="0.15 0.15 0.15 1.0"/>
       </material>
     </visual>
     <collision>
@@ -213,7 +213,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.03" length="0.05"/>
+        <mesh filename="package://r550_description/meshes/r550_ackermann/laser.STL"/>
       </geometry>
     </visual>
     <collision>
@@ -238,7 +238,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.04 0.08 0.04"/>
+        <mesh filename="package://r550_description/meshes/r550_ackermann/camera.STL"/>
       </geometry>
     </visual>
     <collision>

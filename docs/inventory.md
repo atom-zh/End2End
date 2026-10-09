@@ -25,6 +25,8 @@
 - `r550_description/radar/雷达_雷神16线雷达.stp`：16 线雷达 3D 模型。
 - `r550_description/autoware/wheeltec_vehicle_description/`：Autoware 车辆模型与参数。
 - `r550_description/autoware/wheeltec_sensor_kit_description/`：Autoware 传感器套件模型与标定。
+- `r550_description/meshes/r550_ackermann/`：实车 R550 大车阿克曼 STL 网格。
+- `r550_description/reference/wheeltec_robot_urdf/`：`top_akm_dl/bs`、`senior_akm` 完整模型。
 
 ## 2. 开发机
 

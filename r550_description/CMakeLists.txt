@@ -10,7 +10,7 @@ install(
 )
 
 install(
-  DIRECTORY gazebo radar autoware
+  DIRECTORY meshes gazebo radar autoware reference
   DESTINATION share/${PROJECT_NAME}
 )
 

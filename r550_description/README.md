@@ -12,6 +12,8 @@
 | `radar/雷达_雷神16线雷达.stp` | 16 线雷达机械 3D 模型 | `镭神多线雷达.../三维模型/雷达_雷神16线雷达` |
 | `autoware/wheeltec_vehicle_description/` | Autoware `wheeltec_vehicle` 的 xacro、vehicle_info、simulator_model 和 mesh | `autoware_src_2025_04_14.zip` |
 | `autoware/wheeltec_sensor_kit_description/` | Autoware `wheeltec_sensor_kit` 的传感器 URDF 与标定文件 | `autoware_src_2025_04_14.zip` |
+| `meshes/r550_ackermann/` | 从实车 `wheeltec_robot_urdf` 复制的 R550 大车阿克曼真实 STL | 车机 `/home/wheeltec/wheeltec_ros2/install/...` |
+| `reference/wheeltec_robot_urdf/` | `top_akm_dl/bs`、`senior_akm` 三套完整 URDF+网格 | 车机 `wheeltec_robot_urdf` |
 
 ## R550 阿克曼候选 URDF
 
@@ -20,3 +22,5 @@
 - `urdf/wheeltec/top_akm_bs_robot.urdf`：另一大型阿克曼候选。
 
 实车对应哪个型号需结合 OLED 的 TYPE 值和实际尺寸确认，确认后固定为项目默认模型。
+
+当前 Gazebo 仿真 `urdf/r550_ackermann.urdf` 使用 `meshes/r550_ackermann` 的 R550 大车网格作为视觉外观，碰撞体仍为简化几何。
