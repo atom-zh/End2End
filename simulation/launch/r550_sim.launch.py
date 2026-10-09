@@ -1,4 +1,6 @@
 import os
+import tempfile
+from pathlib import Path
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -17,6 +19,16 @@ def generate_launch_description():
 
     urdf_path = os.path.join(description_pkg, "urdf", "r550_ackermann.urdf")
     default_world = os.path.join(simulation_pkg, "worlds", "r550_indoor.world")
+
+    # Gazebo does not reliably resolve package:// URIs for user workspaces.
+    # Resolve them to the installed package path before spawning the entity.
+    urdf_text = Path(urdf_path).read_text()
+    resolved_urdf_text = urdf_text.replace(
+        "package://r550_description", f"file://{description_pkg}"
+    )
+    resolved_urdf_dir = tempfile.mkdtemp(prefix="r550_ackermann_")
+    resolved_urdf_path = os.path.join(resolved_urdf_dir, "r550_ackermann.urdf")
+    Path(resolved_urdf_path).write_text(resolved_urdf_text)
 
     world_arg = DeclareLaunchArgument(
         "world",
@@ -39,7 +51,7 @@ def generate_launch_description():
         parameters=[
             {
                 "robot_description": ParameterValue(
-                    Command(["cat ", urdf_path]), value_type=str
+                    resolved_urdf_text, value_type=str
                 )
             }
         ],
@@ -52,7 +64,7 @@ def generate_launch_description():
         output="screen",
         arguments=[
             "-file",
-            urdf_path,
+            resolved_urdf_path,
             "-entity",
             "r550_ackermann",
             "-x",
