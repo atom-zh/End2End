@@ -27,6 +27,7 @@ OpenVLA 7B 不适合直接上车实时推理，仅作为后续离线蒸馏或云
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
+pip install -r data_pipeline/requirements.txt
 pip install "lerobot[smolvla]"
 ```
 
@@ -34,6 +35,7 @@ pip install "lerobot[smolvla]"
 
 ```bash
 python -c "import lerobot; print(lerobot.__version__)"
+python -c "import rosbags, h5py, cv2"
 ```
 
 ## 4. 数据采集
@@ -90,16 +92,17 @@ ros2 bag record \
 仓库提供转换脚本：
 
 ```bash
+source .venv/bin/activate
 python data_pipeline/bag_to_lerobot.py \
   --bag demo_2026 \
-  --out data/demo_lerobot \
+  --out data/demo_hdf5 \
   --instruction "沿当前车道低速直行，遇到障碍物停车"
 ```
 
-转换后运行质检：
+输出 `data/demo_hdf5/dataset.h5` 和 `manifest.json`。转换后运行质检：
 
 ```bash
-python data_pipeline/check_dataset.py --dataset data/demo_lerobot
+python data_pipeline/check_dataset.py --dataset data/demo_hdf5
 ```
 
 检查项：
@@ -109,6 +112,18 @@ python data_pipeline/check_dataset.py --dataset data/demo_lerobot
 - 时间戳单调递增。
 - 图像亮度/色彩无明显异常。
 - 动作值在速度和转角安全范围内。
+
+当前输出是项目原生 HDF5 中间格式；进入 SmolVLA 训练前，再通过 LeRobot 适配器把 `dataset.h5` 转成 LeRobot 数据集。这样可以在不依赖 LeRobot 版本细节的情况下先完成录包和质检。
+
+转换为 LeRobot 数据集：
+
+```bash
+python data_pipeline/hdf5_to_lerobot.py \
+  --hdf5 data/demo_hdf5/dataset.h5 \
+  --manifest data/demo_hdf5/manifest.json \
+  --repo-id r550/demo \
+  --fps 20
+```
 
 ## 6. SmolVLA 微调
 
