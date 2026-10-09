@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="r550_complex_indoor">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <model name="outer_wall_north">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>14 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>14 0.2 1</size></box></geometry>
+          <material><ambient>0.75 0.75 0.78 1</ambient></material>
+        </visual>
+      </link>
+      <pose>0 4.5 0.5 0 0 0</pose>
+    </model>
+
+    <model name="outer_wall_south">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>14 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>14 0.2 1</size></box></geometry>
+          <material><ambient>0.75 0.75 0.78 1</ambient></material>
+        </visual>
+      </link>
+      <pose>0 -4.5 0.5 0 0 0</pose>
+    </model>
+
+    <model name="outer_wall_east">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 9 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 9 1</size></box></geometry>
+          <material><ambient>0.75 0.75 0.78 1</ambient></material>
+        </visual>
+      </link>
+      <pose>7 0 0.5 0 0 0</pose>
+    </model>
+
+    <model name="outer_wall_west">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 9 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 9 1</size></box></geometry>
+          <material><ambient>0.75 0.75 0.78 1</ambient></material>
+        </visual>
+      </link>
+      <pose>-7 0 0.5 0 0 0</pose>
+    </model>
+
+    <model name="partition_a">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4 0.2 1</size></box></geometry>
+          <material><ambient>0.55 0.55 0.58 1</ambient></material>
+        </visual>
+      </link>
+      <pose>-2 1.5 0.5 0 0 0</pose>
+    </model>
+
+    <model name="partition_b">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.5 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.5 0.2 1</size></box></geometry>
+          <material><ambient>0.55 0.55 0.58 1</ambient></material>
+        </visual>
+      </link>
+      <pose>2.5 -1.5 0.5 0 0 0</pose>
+    </model>
+
+    <model name="partition_c">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 5 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 5 1</size></box></geometry>
+          <material><ambient>0.55 0.55 0.58 1</ambient></material>
+        </visual>
+      </link>
+      <pose>0.5 0.5 0.5 0 0 1.57079632679</pose>
+    </model>
+
+    <model name="column_1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.18</radius><length>1.2</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.18</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>0.35 0.35 0.38 1</ambient></material>
+        </visual>
+      </link>
+      <pose>-4 -2.5 0.6 0 0 0</pose>
+    </model>
+
+    <model name="column_2">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.18</radius><length>1.2</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.18</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>0.35 0.35 0.38 1</ambient></material>
+        </visual>
+      </link>
+      <pose>5 3 0.6 0 0 0</pose>
+    </model>
+
+    <model name="obstacle_box_1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.6 0.6 0.6</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.6 0.6 0.6</size></box></geometry>
+          <material><ambient>0.8 0.25 0.2 1</ambient></material>
+        </visual>
+      </link>
+      <pose>3.5 2.5 0.3 0 0 0</pose>
+    </model>
+
+    <model name="obstacle_box_2">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.7 0.5 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.7 0.5 0.5</size></box></geometry>
+          <material><ambient>0.25 0.45 0.8 1</ambient></material>
+        </visual>
+      </link>
+      <pose>-3 2.8 0.25 0 0 0</pose>
+    </model>
+  </world>
+</sdf>

@@ -3,7 +3,8 @@
 Gazebo 仿真已具备最小可运行闭环：
 
 - `launch/r550_sim.launch.py`：启动 Gazebo、R550 阿克曼模型、`robot_state_publisher`、joystick 和 teleop。
-- `worlds/r550_indoor.world`：带地面和两面墙的室内测试世界。
+- `worlds/r550_indoor.world`：带地面和两面墙的轻量室内测试世界。
+- `worlds/r550_complex_indoor.world`：带多个隔间、柱子和障碍物的复杂室内世界。
 - 车辆模型：`../r550_description/urdf/r550_ackermann.urdf`。
 
 ## 构建与运行
@@ -13,6 +14,12 @@ source /opt/ros/humble/setup.bash
 colcon build --symlink-install --packages-select r550_description simulation
 source install/setup.bash
 ros2 launch simulation r550_sim.launch.py
+```
+
+使用复杂室内世界：
+
+```bash
+ros2 launch simulation r550_sim.launch.py world:=/home/liuxiaolong/work/code/e2e/install/simulation/share/simulation/worlds/r550_complex_indoor.world
 ```
 
 无界面验证：
