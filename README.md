@@ -45,6 +45,7 @@ notebooks/           分析脚本
 - 传统 Autoware 路线：[docs/runbook_autoware_traditional.md](docs/runbook_autoware_traditional.md)
 - SmolVLA 端到端路线：[docs/runbook_e2e_smolvla.md](docs/runbook_e2e_smolvla.md)
 - 环境与资源清单：[docs/inventory.md](docs/inventory.md)
+- Gazebo 仿真入口：[simulation/README.md](simulation/README.md)
 
 ## 仓库约定
 

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>simulation</name>
+  <version>0.1.0</version>
+  <description>Gazebo simulation bringup for R550 PLUS Ackermann.</description>
+  <maintainer email="dev@example.com">r550</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>r550_description</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>teleop_twist_joy</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
