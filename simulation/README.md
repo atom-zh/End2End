@@ -8,6 +8,8 @@ Gazebo 仿真已具备最小可运行闭环：
 - `worlds/r550_indoor.world`：只有两面墙的轻量回归世界，适合快速排查启动问题。
 - 车辆模型：`../r550_description/urdf/r550_ackermann_official.urdf`，使用 `gazebo_ros_ackermann_drive` 驱动，前轮转向由控制器保持回正。
 
+默认出生点在办公区的南侧长走廊（`x=0, y=-3.5`），前后都有足够空间做直线、倒车和掉头回归测试。底盘车体使用简化碰撞盒，摄像头、激光和控制器外壳只保留视觉模型，避免撞到柱子时因高精度 STL 碰撞产生巨大接触力。
+
 ## 构建与运行
 
 ```bash
@@ -29,6 +31,14 @@ ros2 launch simulation r550_sim.launch.py world:=/home/liuxiaolong/work/code/e2e
 ```bash
 ros2 launch simulation r550_sim.launch.py gui:=false
 ```
+
+自动运动回归（会启动隔离的 Gazebo，不影响已经打开的图形界面）：
+
+```bash
+./scripts/test_sim_motion.sh
+```
+
+脚本依次执行前进、倒车、快速倒车和左转，并打印每一步的 `/odom` 位置；如果仿真在中途崩掉，脚本会失败。
 
 ## 当前接口
 

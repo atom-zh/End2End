@@ -35,11 +35,10 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0.0166 -0.0018 0.0255"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/base_link.STL" />
+        <box size="0.762 0.632 0.228" />
       </geometry>
     </collision>
   </link>
@@ -79,15 +78,6 @@
           rgba="0.376470588235294 0.376470588235294 0.376470588235294 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/laser.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="laser_joint"
@@ -132,15 +122,6 @@
           rgba="1 1 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/camera_link.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="camera_joint"
@@ -185,15 +166,6 @@
           rgba="0.741176470588235 0.901960784313726 0.956862745098039 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/controller_link.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="controller_joint"
@@ -551,6 +523,49 @@
     <origin xyz="0.2 0 0.1" rpy="0 0 0"/>
   </joint>
 
+  <!-- Softer contact parameters keep the small R550 stable when it touches
+       walls or columns.  The visual meshes remain unchanged. -->
+  <gazebo reference="base_link">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <kp>100000</kp>
+    <kd>100</kd>
+    <minDepth>0.002</minDepth>
+    <maxVel>0.05</maxVel>
+  </gazebo>
+  <gazebo reference="lb_wheel_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000</kp>
+    <kd>100</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.05</maxVel>
+  </gazebo>
+  <gazebo reference="rb_wheel_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000</kp>
+    <kd>100</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.05</maxVel>
+  </gazebo>
+  <gazebo reference="lf_wheel_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000</kp>
+    <kd>100</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.05</maxVel>
+  </gazebo>
+  <gazebo reference="rf_wheel_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000</kp>
+    <kd>100</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.05</maxVel>
+  </gazebo>
+
   <gazebo>
     <plugin name="ackermann_drive" filename="libgazebo_ros_ackermann_drive.so">
       <ros>
@@ -567,12 +582,12 @@
       <steering_wheel_joint>steering_wheel_joint</steering_wheel_joint>
       <max_steer>0.52</max_steer>
       <max_steering_angle>0.52</max_steering_angle>
-      <max_speed>0.5</max_speed>
+      <max_speed>0.4</max_speed>
       <left_steering_pid_gain>20 0 2</left_steering_pid_gain>
       <left_steering_i_range>0 0</left_steering_i_range>
       <right_steering_pid_gain>20 0 2</right_steering_pid_gain>
       <right_steering_i_range>0 0</right_steering_i_range>
-      <linear_velocity_pid_gain>3 0 1</linear_velocity_pid_gain>
+      <linear_velocity_pid_gain>5 0 0</linear_velocity_pid_gain>
       <linear_velocity_i_range>0 0</linear_velocity_i_range>
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
