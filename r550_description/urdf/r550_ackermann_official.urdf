@@ -537,51 +537,12 @@
       xyz="0 1 0" />
   </joint>
 
-  <link name="steering_wheel_link">
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.02"/>
-      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.02 0.02"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.02 0.02"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="steering_wheel_joint" type="revolute">
-    <parent link="base_link"/>
-    <child link="steering_wheel_link"/>
-    <origin xyz="0.2 0 0.3" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-1.2" upper="1.2" effort="1" velocity="1.0"/>
-  </joint>
-
   <link name="gyro_link">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.02"/>
       <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
     </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.02 0.02"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.02 0.02"/>
-      </geometry>
-    </collision>
   </link>
   <joint name="gyro_joint" type="fixed">
     <parent link="base_link"/>
