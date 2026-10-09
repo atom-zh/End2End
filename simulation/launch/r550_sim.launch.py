@@ -18,7 +18,7 @@ def generate_launch_description():
     gazebo_ros_pkg = get_package_share_directory("gazebo_ros")
 
     urdf_path = os.path.join(description_pkg, "urdf", "r550_ackermann_official.urdf")
-    default_world = os.path.join(simulation_pkg, "worlds", "r550_indoor.world")
+    default_world = os.path.join(simulation_pkg, "worlds", "r550_office_indoor.world")
 
     # Gazebo does not reliably resolve package:// URIs for user workspaces.
     # Resolve them to the installed package path before spawning the entity.

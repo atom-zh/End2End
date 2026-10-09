@@ -3,9 +3,10 @@
 Gazebo 仿真已具备最小可运行闭环：
 
 - `launch/r550_sim.launch.py`：启动 Gazebo、R550 阿克曼模型、`robot_state_publisher`、joystick 和 teleop。
-- `worlds/r550_indoor.world`：带地面和两面墙的轻量室内测试世界。
-- `worlds/r550_complex_indoor.world`：带多个隔间、柱子和障碍物的复杂室内世界。
-- 车辆模型：`../r550_description/urdf/r550_ackermann.urdf`。
+- `worlds/r550_office_indoor.world`：默认世界，20 m × 16 m 的办公室/实验室布局，包含 6 个带门洞的房间、中央走廊、柱子、桌椅、货架和走廊障碍物。
+- `worlds/r550_complex_indoor.world`：中等复杂度的旧版测试世界，含隔间、柱子和障碍物。
+- `worlds/r550_indoor.world`：只有两面墙的轻量回归世界，适合快速排查启动问题。
+- 车辆模型：`../r550_description/urdf/r550_ackermann_official.urdf`，使用 `gazebo_ros_ackermann_drive` 驱动，前轮转向由控制器保持回正。
 
 ## 构建与运行
 
@@ -16,10 +17,11 @@ source install/setup.bash
 ros2 launch simulation r550_sim.launch.py
 ```
 
-使用复杂室内世界：
+使用其他世界：
 
 ```bash
 ros2 launch simulation r550_sim.launch.py world:=/home/liuxiaolong/work/code/e2e/install/simulation/share/simulation/worlds/r550_complex_indoor.world
+ros2 launch simulation r550_sim.launch.py world:=/home/liuxiaolong/work/code/e2e/install/simulation/share/simulation/worlds/r550_indoor.world
 ```
 
 无界面验证：

@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="r550_office_indoor">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- ================= outer walls ================= -->
+    <model name="outer_wall_north">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>20 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>20 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.76 0.76 0.78 1</ambient>
+            <diffuse>0.76 0.76 0.78 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0 8 0.6 0 0 0</pose>
+    </model>
+
+    <model name="outer_wall_south">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>20 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>20 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.76 0.76 0.78 1</ambient>
+            <diffuse>0.76 0.76 0.78 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0 -8 0.6 0 0 0</pose>
+    </model>
+
+    <model name="outer_wall_east">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 16 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 16 1.2</size></box></geometry>
+          <material>
+            <ambient>0.76 0.76 0.78 1</ambient>
+            <diffuse>0.76 0.76 0.78 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>10 0 0.6 0 0 0</pose>
+    </model>
+
+    <model name="outer_wall_west">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 16 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 16 1.2</size></box></geometry>
+          <material>
+            <ambient>0.76 0.76 0.78 1</ambient>
+            <diffuse>0.76 0.76 0.78 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-10 0 0.6 0 0 0</pose>
+    </model>
+
+    <!-- ================= room dividers ================= -->
+    <model name="divider_north_west">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-5 5 0.6 0 0 0</pose>
+    </model>
+
+    <model name="divider_north_east">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>2 5 0.6 0 0 0</pose>
+    </model>
+
+    <model name="divider_south_west">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-5 -5 0.6 0 0 0</pose>
+    </model>
+
+    <model name="divider_south_east">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 6 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>2 -5 0.6 0 0 0</pose>
+    </model>
+
+    <!-- ================= north corridor wall, with three doors ================= -->
+    <model name="north_wall_n1_left">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-9.15 2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="north_wall_n1_right">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-5.85 2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="north_wall_n2_left">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-3.65 2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="north_wall_n2_right">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.65 2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="north_wall_n3_left">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>3.6 2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="north_wall_n3_right">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>8.4 2 0.6 0 0 0</pose>
+    </model>
+
+    <!-- ================= south corridor wall, with three doors ================= -->
+    <model name="south_wall_s1_left">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-9.15 -2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="south_wall_s1_right">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-5.85 -2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="south_wall_s2_left">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-3.65 -2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="south_wall_s2_right">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.7 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.65 -2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="south_wall_s3_left">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>3.6 -2 0.6 0 0 0</pose>
+    </model>
+
+    <model name="south_wall_s3_right">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.2 0.2 1.2</size></box></geometry>
+          <material>
+            <ambient>0.68 0.68 0.71 1</ambient>
+            <diffuse>0.68 0.68 0.71 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>8.4 -2 0.6 0 0 0</pose>
+    </model>
+
+    <!-- ================= corridor columns ================= -->
+    <model name="column_1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.16</radius><length>1.2</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.16</radius><length>1.2</length></cylinder></geometry>
+          <material>
+            <ambient>0.35 0.35 0.38 1</ambient>
+            <diffuse>0.35 0.35 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-3.5 0 0.6 0 0 0</pose>
+    </model>
+
+    <model name="column_2">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.16</radius><length>1.2</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.16</radius><length>1.2</length></cylinder></geometry>
+          <material>
+            <ambient>0.35 0.35 0.38 1</ambient>
+            <diffuse>0.35 0.35 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.5 0 0.6 0 0 0</pose>
+    </model>
+
+    <model name="column_3">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.16</radius><length>1.2</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.16</radius><length>1.2</length></cylinder></geometry>
+          <material>
+            <ambient>0.35 0.35 0.38 1</ambient>
+            <diffuse>0.35 0.35 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>5 0 0.6 0 0 0</pose>
+    </model>
+
+    <!-- ================= north room furniture ================= -->
+    <model name="desk_n1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.8 0.75</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.4 0.8 0.75</size></box></geometry>
+          <material>
+            <ambient>0.45 0.28 0.16 1</ambient>
+            <diffuse>0.45 0.28 0.16 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-7.8 6.4 0.375 0 0 0</pose>
+    </model>
+
+    <model name="desk_n2">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.4 1.2 0.75</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.4 1.2 0.75</size></box></geometry>
+          <material>
+            <ambient>0.45 0.28 0.16 1</ambient>
+            <diffuse>0.45 0.28 0.16 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-1.5 5.2 0.375 0 0 0</pose>
+    </model>
+
+    <model name="desk_n3">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.4 0.8 0.75</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.4 0.8 0.75</size></box></geometry>
+          <material>
+            <ambient>0.45 0.28 0.16 1</ambient>
+            <diffuse>0.45 0.28 0.16 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>4.8 6.4 0.375 0 0 0</pose>
+    </model>
+
+    <model name="shelf_north_west">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+          <material>
+            <ambient>0.32 0.34 0.38 1</ambient>
+            <diffuse>0.32 0.34 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-9.2 3.2 0.55 0 0 0</pose>
+    </model>
+
+    <model name="shelf_north_east">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+          <material>
+            <ambient>0.32 0.34 0.38 1</ambient>
+            <diffuse>0.32 0.34 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>9.2 6.2 0.55 0 0 0</pose>
+    </model>
+
+    <!-- ================= south room furniture ================= -->
+    <model name="desk_s1">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.2 0.7 0.75</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.2 0.7 0.75</size></box></geometry>
+          <material>
+            <ambient>0.45 0.28 0.16 1</ambient>
+            <diffuse>0.45 0.28 0.16 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-7.8 -6.4 0.375 0 0 0</pose>
+    </model>
+
+    <model name="desk_s2">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.4 1.2 0.75</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.4 1.2 0.75</size></box></geometry>
+          <material>
+            <ambient>0.45 0.28 0.16 1</ambient>
+            <diffuse>0.45 0.28 0.16 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-1.5 -5.2 0.375 0 0 0</pose>
+    </model>
+
+    <model name="desk_s3">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.2 0.7 0.75</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.2 0.7 0.75</size></box></geometry>
+          <material>
+            <ambient>0.45 0.28 0.16 1</ambient>
+            <diffuse>0.45 0.28 0.16 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>4.8 -6.4 0.375 0 0 0</pose>
+    </model>
+
+    <model name="shelf_south_west">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+          <material>
+            <ambient>0.32 0.34 0.38 1</ambient>
+            <diffuse>0.32 0.34 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-9.2 -3.2 0.55 0 0 0</pose>
+    </model>
+
+    <model name="shelf_south_east">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.6 1.8 1.1</size></box></geometry>
+          <material>
+            <ambient>0.32 0.34 0.38 1</ambient>
+            <diffuse>0.32 0.34 0.38 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>9.2 -6.2 0.55 0 0 0</pose>
+    </model>
+
+    <!-- ================= extra corridor obstacles ================= -->
+    <model name="obstacle_cart">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.8 0.55 0.7</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.8 0.55 0.7</size></box></geometry>
+          <material>
+            <ambient>0.15 0.45 0.2 1</ambient>
+            <diffuse>0.15 0.45 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-8.6 0.2 0.35 0 0 0</pose>
+    </model>
+
+    <model name="obstacle_box">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.7 0.7 0.55</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.7 0.7 0.55</size></box></geometry>
+          <material>
+            <ambient>0.78 0.28 0.18 1</ambient>
+            <diffuse>0.78 0.28 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>7.5 -1.2 0.275 0 0 0</pose>
+    </model>
+  </world>
+</sdf>
