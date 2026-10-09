@@ -241,10 +241,9 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="1.5707963267948966 0 0" />
       <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/lb_wheel_link.STL" />
+        <cylinder radius="0.1275" length="0.08" />
       </geometry>
     </collision>
   </link>
@@ -294,10 +293,9 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="1.5707963267948966 0 0" />
       <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/rb_wheel_link.STL" />
+        <cylinder radius="0.1275" length="0.08" />
       </geometry>
     </collision>
   </link>
@@ -356,7 +354,7 @@
   </link>
   <joint
     name="left1_joint"
-    type="fixed">
+    type="revolute">
     <origin
       xyz="0.280787211521842 0.218842319206627 0.011489799879887"
       rpy="0 0 0" />
@@ -364,6 +362,8 @@
       link="base_link" />
     <child
       link="left1_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.52" upper="0.52" effort="20" velocity="2.0" />
   </joint>
   <link
     name="lf_wheel_link">
@@ -398,10 +398,9 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="1.5707963267948966 0 0" />
       <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/lf_wheel_link.STL" />
+        <cylinder radius="0.1275" length="0.08" />
       </geometry>
     </collision>
   </link>
@@ -460,7 +459,7 @@
   </link>
   <joint
     name="right1_joint"
-    type="fixed">
+    type="revolute">
     <origin
       xyz="0.280787211521861 -0.222479416477029 0.0114897998799043"
       rpy="0 0 0" />
@@ -468,6 +467,8 @@
       link="base_link" />
     <child
       link="right1_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.52" upper="0.52" effort="20" velocity="2.0" />
   </joint>
   <link
     name="rf_wheel_link">
@@ -502,10 +503,9 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="1.5707963267948966 0 0" />
       <geometry>
-        <mesh
-          filename="package://r550_description/reference/wheeltec_robot_urdf/meshes/top_akm_dl_robot_meshes/rf_wheel_link.STL" />
+        <cylinder radius="0.1275" length="0.08" />
       </geometry>
     </collision>
   </link>
@@ -552,20 +552,33 @@
   </joint>
 
   <gazebo>
-    <plugin name="planar_move" filename="libgazebo_ros_planar_move.so">
+    <plugin name="ackermann_drive" filename="libgazebo_ros_ackermann_drive.so">
       <ros>
         <remapping>cmd_vel:=cmd_vel</remapping>
         <remapping>odom:=odom</remapping>
       </ros>
-      <update_rate>100</update_rate>
-      <publish_rate>20</publish_rate>
+      <update_rate>50.0</update_rate>
+      <front_left_joint>lf_wheel_joint</front_left_joint>
+      <front_right_joint>rf_wheel_joint</front_right_joint>
+      <rear_left_joint>lb_wheel_joint</rear_left_joint>
+      <rear_right_joint>rb_wheel_joint</rear_right_joint>
+      <left_steering_joint>left1_joint</left_steering_joint>
+      <right_steering_joint>right1_joint</right_steering_joint>
+      <steering_wheel_joint>steering_wheel_joint</steering_wheel_joint>
+      <max_steer>0.52</max_steer>
+      <max_steering_angle>0.52</max_steering_angle>
+      <max_speed>0.5</max_speed>
+      <left_steering_pid_gain>20 0 2</left_steering_pid_gain>
+      <left_steering_i_range>0 0</left_steering_i_range>
+      <right_steering_pid_gain>20 0 2</right_steering_pid_gain>
+      <right_steering_i_range>0 0</right_steering_i_range>
+      <linear_velocity_pid_gain>3 0 1</linear_velocity_pid_gain>
+      <linear_velocity_i_range>0 0</linear_velocity_i_range>
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
       <odometry_frame>odom</odometry_frame>
       <robot_base_frame>base_footprint</robot_base_frame>
-      <covariance_x>0.0001</covariance_x>
-      <covariance_y>0.0001</covariance_y>
-      <covariance_yaw>0.01</covariance_yaw>
     </plugin>
   </gazebo>
 
