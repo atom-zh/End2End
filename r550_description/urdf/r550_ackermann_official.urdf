@@ -356,7 +356,7 @@
   </link>
   <joint
     name="left1_joint"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.280787211521842 0.218842319206627 0.011489799879887"
       rpy="0 0 0" />
@@ -364,13 +364,6 @@
       link="base_link" />
     <child
       link="left1_link" />
-    <axis
-      xyz="0 0 1" />
-    <limit
-      lower="-0.52"
-      upper="0.52"
-      effort="10"
-      velocity="1.0" />
   </joint>
   <link
     name="lf_wheel_link">
@@ -467,7 +460,7 @@
   </link>
   <joint
     name="right1_joint"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.280787211521861 -0.222479416477029 0.0114897998799043"
       rpy="0 0 0" />
@@ -475,13 +468,6 @@
       link="base_link" />
     <child
       link="right1_link" />
-    <axis
-      xyz="0 0 1" />
-    <limit
-      lower="-0.52"
-      upper="0.52"
-      effort="10"
-      velocity="1.0" />
   </joint>
   <link
     name="rf_wheel_link">
