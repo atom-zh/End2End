@@ -30,6 +30,7 @@ venv/
 
 # system
 .cache/
+.gazebo-wrappers/
 .vscode/
 .idea/
 .DS_Store
