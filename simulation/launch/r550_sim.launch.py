@@ -68,7 +68,7 @@ def generate_launch_description():
             "-entity",
             "r550_ackermann",
             "-x",
-            "0.0",
+            "-1.5",
             "-y",
             "0.0",
             "-z",
