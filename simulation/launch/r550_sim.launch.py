@@ -17,7 +17,7 @@ def generate_launch_description():
     simulation_pkg = get_package_share_directory("simulation")
     gazebo_ros_pkg = get_package_share_directory("gazebo_ros")
 
-    urdf_path = os.path.join(description_pkg, "urdf", "r550_ackermann.urdf")
+    urdf_path = os.path.join(description_pkg, "urdf", "r550_ackermann_official.urdf")
     default_world = os.path.join(simulation_pkg, "worlds", "r550_indoor.world")
 
     # Gazebo does not reliably resolve package:// URIs for user workspaces.
@@ -72,7 +72,7 @@ def generate_launch_description():
             "-y",
             "0.0",
             "-z",
-            "0.15",
+            "0.16",
         ],
     )
 
