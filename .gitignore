@@ -1,0 +1,35 @@
+# data / artifacts
+data/
+*.bag
+*.db3
+*.mcap
+*.h5
+*.hdf5
+*.parquet
+*.onnx
+*.engine
+*.plan
+*.pt
+*.pth
+*.safetensors
+*.bin
+
+# ROS build
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# system
+.cache/
+.vscode/
+.idea/
+.DS_Store

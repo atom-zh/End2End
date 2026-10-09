@@ -1,0 +1,58 @@
+robot:
+  model: "R550 PLUS"
+  chassis: "ackermann"
+  ros_distro: "humble"
+  ros_domain_id: 31
+  wifi_ip: "192.168.101.15/24"
+  lidar_network_ip: "192.168.1.102/24"
+
+controller:
+  device: "/dev/wheeltec_controller"
+  baud_rate: 115200
+  cmd_vel_topic: "/cmd_vel"
+  odom_topic: "/odom"
+  frame_id: "base_footprint"
+  odom_frame_id: "odom_combined"
+
+lidar:
+  model: "leishen_c16"
+  device_ip: "192.168.1.200"
+  msop_port: 2368
+  difop_port: 2369
+  topic: "/point_cloud_raw"
+  frame_id: "laser"
+  tf_from_base_link:
+    x: 0.26
+    y: 0.0
+    z: 0.228
+    roll: -1.57
+    pitch: 0.0
+    yaw: 0.0
+
+camera:
+  model: "Orbbec Astra Pro Plus"
+  launch: "astra_pro_plus.launch.py"
+  color_topic: "/camera/color/image_raw"
+  depth_topic: "/camera/depth/image_rect_raw"
+  points_topic: "/camera/depth/points"
+
+gnss:
+  model: "WHEELTEC G70"
+  device: "/dev/wheeltec_gnss"
+  baud_rate: 115200
+  topic: "/gps/fix"
+  frame_id: "navsat_link"
+
+imu:
+  model: "Yesense"
+  device: "/dev/wheeltec_IMU"
+  baud_rate: 460800
+  topic: "/sensing/imu/imu_data"
+  frame_id: "gyro_link"
+
+vehicle:
+  wheel_base: 0.322
+  wheel_tread: 0.312
+  wheel_radius: 0.062
+  max_steer_angle: 1.2
+  max_speed: 0.5

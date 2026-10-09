@@ -1,0 +1,13 @@
+host:
+  os: "Ubuntu 22.04.5 LTS"
+  arch: "x86_64"
+  cpu_cores: 32
+  memory_gib: 62
+  ros_distro: "humble"
+  gazebo_version: "11.10.2"
+  ethernet_ip: "192.168.101.240/24"
+  gpu_status: "hardware_present_driver_module_not_loaded"
+
+resources:
+  r550_root: "/media/home/share/R550"
+  notes: "原始资料只索引，不复制进仓库"
